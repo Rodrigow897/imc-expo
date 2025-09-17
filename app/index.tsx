@@ -9,21 +9,21 @@ export default function Index() {
 
   function resetApp() {
     setUserHeight('')
-    setMessageImc('Preencha o peso e a altura')
+    setMessageImc('Preencha o peso e a altura com . separando as casas decimais')
     setImc('')
     setUserWeight('')
   }
 
   const calcularImc = () => {
     if (!userWeight || !userHeight) {
-      setMessageImc("Preencha o peso e a altura");
+      setMessageImc("Preencha o peso e a altura com . separando as casas decimais");
       console.log('Campos não preenchidos');
       return;
     }
 
     // Cálculo do IMC
     const p = parseFloat(userWeight);
-    const a = parseFloat(userHeight) / 100;
+    const a = parseFloat(userHeight);
     const imcCalculado = p / (a * a);
     setImc(imcCalculado.toFixed(2));  // Atualizando o estado do IMC
 
@@ -143,6 +143,8 @@ marginBottom: 10,
   imcText:{
     fontSize: 16,
     color: '#fff',
-    marginTop: 30
+    marginTop: 30,
+    width: 300,
+    textAlign: 'center'
   }
 })
